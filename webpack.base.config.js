@@ -23,7 +23,7 @@ module.exports = {
     },
 
     resolve: {
-        modules: [resolve(__dirname, '../src'), 'node_modules'],
+        // modules: [resolve(__dirname, '../src'), 'node_modules'],
         // Add '.ts' and '.tsx' as resolvable extensions.
         extensions: [".ts", ".tsx", ".js"]
     },
@@ -44,7 +44,18 @@ module.exports = {
                 enforce: "pre",
                 test: /\.js$/,
                 loader: "source-map-loader"
-            }
+            },
+            {
+                test: /\.s[ac]ss$/i,
+                use: [
+                  // Creates `style` nodes from JS strings
+                  'style-loader',
+                  // Translates CSS into CommonJS
+                  'css-loader',
+                  // Compiles Sass to CSS
+                  'sass-loader',
+                ],
+              },
         ]
     },
 

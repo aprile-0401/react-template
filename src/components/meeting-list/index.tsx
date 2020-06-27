@@ -7,7 +7,7 @@ export const MeetingList: React.FunctionComponent = () => {
 console.log('this was refeshed')
   return (
       <div className="app--meeting-home-top">
-        I am tesing
+        I am tes
       </div>
     )
 };

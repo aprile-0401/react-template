@@ -6,22 +6,13 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 module.exports = {
     entry: './src/index.tsx',
     output: {
-        filename: 'main.js',
+        filename: '[name].bundle.js',
         path: resolve(__dirname, 'dist'),
     },
 
     // Enable sourcemaps for debugging webpack's output.
-    devtool: "source-map",
-
-    devServer: {
-        contentBase: false,
-        host: '0.0.0.0',
-        port: '8000',
-        watchOptions: {
-            ignored: /node_modules/,
-        },
-    },
-
+    // devtool: "source-map",
+    
     resolve: {
         // modules: [resolve(__dirname, '../src'), 'node_modules'],
         // Add '.ts' and '.tsx' as resolvable extensions.
@@ -32,18 +23,13 @@ module.exports = {
         rules: [
             {
                 test: /\.ts(x?)$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: "ts-loader"
+                exclude: /(node_modules|bower_components)/,
+                use: {
+                    loader: 'babel-loader',
+                    options: {
+                    presets: ['@babel/preset-env', "@babel/preset-react"]
                     }
-                ]
-            },
-            // All output '.js' files will have any sourcemaps re-processed by 'source-map-loader'.
-            {
-                enforce: "pre",
-                test: /\.js$/,
-                loader: "source-map-loader"
+                }
             },
             {
                 test: /\.s[ac]ss$/i,

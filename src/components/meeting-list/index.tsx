@@ -3,7 +3,7 @@ import './styles.scss'
 
 // const { useState, useCallback, useRef } = React
 
-export const MeetingList: React.FunctionComponent = () => {
+const MeetingList: React.FunctionComponent = () => {
   
 console.log('this was refeshed')
   return (
@@ -12,4 +12,6 @@ console.log('this was refeshed')
       </div>
     )
 };
+
+export default MeetingList;
 

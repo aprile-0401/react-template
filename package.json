@@ -50,6 +50,8 @@
     "webpack-merge": "^4.2.2"
   },
   "dependencies": {
+    "@target-energysolutions/toast": "^1.0.3",
+    "mdi-react": "^5.3.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1"
   }
